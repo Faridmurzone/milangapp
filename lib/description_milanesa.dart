@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:milangapp/ButtonPurple.dart';
+import 'package:milangapp/button_purple.dart';
 
 class DescriptionMilanesa extends StatelessWidget {
 

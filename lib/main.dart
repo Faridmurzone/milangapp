@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:milangapp/description_milanesa.dart';
+import 'package:milangapp/milangapp_milas.app.dart';
 import 'review_list.dart';
 import 'header_appbar.dart';
 
@@ -18,17 +19,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            ListView(
-              children: [
-                DescriptionMilanesa("Milanesa Napolitana", 4, "Alta milanesa de la farola. Realmente sublime, con una salsa de tomate digna de entrar al panteon de las milanesas. El queso fantastico, no escatimaron en nada, aplausos."),
-                ReviewList()
-              ],
-            ),
-            HeaderAppBar(),
-          ]
-        )
+        body: MilangappMilas()
       )// MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
