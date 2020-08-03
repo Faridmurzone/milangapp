@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:milangapp/review_list.dart';
+import 'review_list.dart';
 
 import 'description_milanesa.dart';
 import 'header_appbar.dart';

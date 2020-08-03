@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:milangapp/profile_milas.dart';
-import 'package:milangapp/search_milas.dart';
+import 'profile_milas.dart';
+import 'search_milas.dart';
 import 'home_milas.dart';
 
 

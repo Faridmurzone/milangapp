@@ -1,4 +1,4 @@
-name: milangapp
+name: milanesapp
 description: La verdad de la milanesa
 
 # The following line prevents the package from being accidentally published to
@@ -24,10 +24,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  generic_bloc_provider: ^1.0.9
+  firebase_auth:
+  google_sign_in:
+  firebase_storage: ^3.1.6
+  cloud_firestore: ^0.13.7
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +83,15 @@ flutter:
     - assets/img/milas.jpeg
     - assets/img/milas2.jpeg
     - assets/img/profilepic.jpeg
+    - assets/img/people.jpg
+    - assets/img/ann.jpg
+    - assets/img/girl.jpg
+    - assets/img/mountain.jpeg
+    - assets/img/beach.jpeg
+    - assets/img/beach_palm.jpeg
+    - assets/img/mountain_stars.jpeg
+    - assets/img/sunset.jpeg
+    - assets/img/river.jpeg
 
 
 fonts:
