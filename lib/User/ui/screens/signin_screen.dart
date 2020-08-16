@@ -5,6 +5,7 @@ import 'package:milanesapp/User/bloc/bloc_user.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:milanesapp/milanesapp_cupertino.dart';
+
 class SignInScreen extends StatefulWidget {
   @override
   _SignInScreenState createState() => _SignInScreenState();
