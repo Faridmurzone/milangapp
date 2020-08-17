@@ -1,9 +1,21 @@
+import 'package:flutter/cupertino.dart';
+import 'package:milanesapp/User/model/user.dart';
+
 class Milanesa {
+  String id;
   String name;
-  String where;
-  String type;
-  String steps;
+  String description;
+  String urlImage;
+  int likes;
+  User userOwner;
   // Object ingredientes;
 
-  Milanesa(this.name, this.where, this.type, this.steps);
+  Milanesa({
+    Key key,
+    @required this.name,
+    @required this.description,
+    @required this.urlImage,
+    this.likes,
+    @required userOwner
+  });
 }
