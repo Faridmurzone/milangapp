@@ -23,7 +23,7 @@ class ProfileMilanesaInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                this.milanga.where,
+                this.milanga.name,
                 style: TextStyle(
                     color: Color.fromRGBO(0, 0, 0, 0.4),
                     fontFamily: 'Mulish',
@@ -31,7 +31,7 @@ class ProfileMilanesaInfo extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                this.milanga.type,
+                this.milanga.description,
                 style: TextStyle(
                     color: Color.fromRGBO(0, 0, 0, 0.4),
                     fontFamily: 'Lato',
@@ -41,7 +41,7 @@ class ProfileMilanesaInfo extends StatelessWidget {
             ]));
 
     final steps = Text(
-      'Ingredientes: ${this.milanga.steps}',
+      'Ingredientes: ${this.milanga.likes}',
       style: TextStyle(
           fontFamily: 'Mulish',
           fontSize: 14.0,

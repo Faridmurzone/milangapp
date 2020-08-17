@@ -4,15 +4,17 @@ import 'package:milanesapp/Milanesa/model/milanesa.dart';
 
 class ProfileMilanesasList extends StatelessWidget {
   Milanesa milanga = new Milanesa(
-      'Milanesa napolitana',
-      'Milanesa de ternera elaborada con queso y tomate',
-      'Muy buena',
-      'Ternera, Muzzarella, Salsa de tomate');
+      name: 'Milanesa de pollo',
+      description: 'Milanesa simple de pollo',
+      urlImage: 'Pollo',
+      likes: 3
+  );
   Milanesa milanga2 = new Milanesa(
-      'Milanesa de pollo',
-      'Milanesa simple de pollo',
-      'Pollo',
-      'Mucha papa frita, Ternera, Queso');
+      name: 'Milanesa de pollo',
+      description: 'Milanesa simple de pollo',
+      urlImage: 'Pollo',
+      likes: 3
+  );
 
   @override
   Widget build(BuildContext context) {

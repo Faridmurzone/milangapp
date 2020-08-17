@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:milanesapp/User/model/user.dart';
+import 'package:milanesapp/User/repository/firebase_auth.dart';
 import 'package:milanesapp/widgets/gradient_back.dart';
 import 'package:milanesapp/widgets/button_green.dart';
 import 'package:milanesapp/User/bloc/bloc_user.dart';
@@ -56,7 +58,15 @@ class _SignInScreenState extends State<SignInScreen> {
               ButtonGreen(
                   text: "Login con Gmail",
                   onPressed: () {
-                    userBloc.signIn().then((FirebaseAuth user) => print("El user es ${user}"));
+                    userBloc.signIn().then((FirebaseUser user) {
+                        userBloc.updateUserData(
+                            User(
+                                uid: user.uid,
+                                name: user.displayName,
+                                email: user.email,
+                                photoUrl: user.photoUrl)
+                        );
+                    });
                   },
                   width: 300.0,
                   height: 50.0,
