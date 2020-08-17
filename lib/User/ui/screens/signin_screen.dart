@@ -16,10 +16,12 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
 
   UserBloc userBloc;
+  double screenWidth;
 
   @override
   Widget build(BuildContext context) {
     userBloc = BlocProvider.of(context);
+    screenWidth = MediaQuery.of(context).size.width;
     return _handleCurrentSession();
   }
 
@@ -42,17 +44,22 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          GradientBack("", null),
+          GradientBack(height: null),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Bienvenido \nal lugar de los milanesios",
-                style: TextStyle(
-                  fontSize: 37.0,
-                  fontFamily: "Mulish",
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
+              Flexible(
+                child: Container(
+                    width: screenWidth,
+                    child: Text(
+                    "Bienvenido a MILANESAPP\nCarga tus milas\nAHORA!",
+                    style: TextStyle(
+                        fontSize: 30.0,
+                        fontFamily: "Mulish",
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                    )
+                  )
                 )
               ),
               ButtonGreen(
