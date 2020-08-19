@@ -13,7 +13,7 @@ class TextInput extends StatelessWidget {
     @required this.inputType,
     @required this.controller,
     this.maxLines
-  })
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
 class FloatingActionButtonGreen extends StatefulWidget {
+  final IconData iconData;
+  final VoidCallback onPressed;
+
+  FloatingActionButtonGreen({
+    Key key,
+    this.iconData,
+    this.onPressed
+  });
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -18,7 +27,6 @@ class _FloatingActionButtonGreen extends State<FloatingActionButtonGreen> {
           content: Text("Agregaste a tus Favoritos"),
         )
     );
-
   }
 
   @override
@@ -28,9 +36,9 @@ class _FloatingActionButtonGreen extends State<FloatingActionButtonGreen> {
       backgroundColor: Color(0xFF11DA53),
       mini: true,
       tooltip: "Fav",
-      onPressed: onPressedFav,
+      onPressed: widget.onPressed,
       child: Icon(
-        Icons.favorite_border
+        widget.iconData
       ),
       heroTag: null,
     );
