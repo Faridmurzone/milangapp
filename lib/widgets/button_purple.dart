@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:milanesapp/User/bloc/bloc_user.dart';
 
 
 class ButtonPurple extends StatelessWidget {
 
-  String buttonText = "Navigate";
+  final String buttonText;
+  final VoidCallback onPressed;
 
-  ButtonPurple(this.buttonText);
+  ButtonPurple({
+      Key key,
+      @required this.buttonText,
+      @required this.onPressed
+    });
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return InkWell(
-      onTap: () {
-        Scaffold.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Navegando"),
-            )
-        );
-      },
+      onTap: onPressed,
       child: Container(
         margin: EdgeInsets.only(
             top: 30.0,

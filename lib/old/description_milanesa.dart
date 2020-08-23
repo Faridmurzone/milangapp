@@ -96,7 +96,7 @@ class DescriptionMilanesa extends StatelessWidget {
       children: <Widget>[
         title_stars,
         description,
-        ButtonPurple("Detalles")
+        ButtonPurple(buttonText: "Detalles", onPressed: (){},)
       ],
     );
   }

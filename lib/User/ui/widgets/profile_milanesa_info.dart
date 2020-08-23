@@ -41,7 +41,7 @@ class ProfileMilanesaInfo extends StatelessWidget {
             ]));
 
     final steps = Text(
-      'Ingredientes: ${this.milanga.likes}',
+      'Favoritos: ${this.milanga.likes}',
       style: TextStyle(
           fontFamily: 'Mulish',
           fontSize: 14.0,
@@ -70,7 +70,7 @@ class ProfileMilanesaInfo extends StatelessWidget {
 
     return Stack(
       alignment: Alignment(0.8, 1.25),
-      children: <Widget>[card, FloatingActionButtonGreen()],
+      children: <Widget>[card, FloatingActionButtonGreen(iconData: Icons.favorite_border)],
     );
   }
 }

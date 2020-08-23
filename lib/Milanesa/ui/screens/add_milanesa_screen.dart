@@ -1,9 +1,15 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:milanesapp/Milanesa/model/milanesa.dart';
 import 'package:milanesapp/Milanesa/ui/widgets/card_image.dart';
 import 'package:milanesapp/Milanesa/ui/widgets/title_header.dart';
 import 'package:milanesapp/Milanesa/ui/widgets/type_input_location.dart';
+import 'package:milanesapp/User/bloc/bloc_user.dart';
+import 'package:milanesapp/old/button_purple.dart';
 import 'package:milanesapp/widgets/gradient_back.dart';
 import 'package:milanesapp/widgets/text_input.dart';
 
@@ -20,6 +26,7 @@ class _AddMilanesaScreen extends State<AddMilanesaScreen> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    UserBloc userBloc = BlocProvider.of<UserBloc>(context);
     final _controllerTitleMilanesa = TextEditingController();
     final _controllerDescriptionMilanesa = TextEditingController();
 
@@ -57,7 +64,7 @@ class _AddMilanesaScreen extends State<AddMilanesaScreen> {
                 Container(
                   alignment: Alignment.center,
                   child: CardImage(
-                    pathImage: "assets/img/beach_palm.jpeg", // widget.image.path,
+                    pathImage: widget.image.path, //"assets/img/beach_palm.jpeg", // widget.image.path,
                     iconData: Icons.camera_alt,
                     width: 350.0,
                     height: 250.0,
@@ -84,6 +91,40 @@ class _AddMilanesaScreen extends State<AddMilanesaScreen> {
                   child: TextInputLocation(
                     hintText: "De donde es la milanga?",
                     iconData: Icons.location_on
+                  )
+                ),
+                Container(
+                  width: 70.0,
+                  child: ButtonPurple(
+                      buttonText: "Agregar Mila",
+                      onPressed: () {
+                        // Firebase Storage
+                        // URL
+                        userBloc.currentUser.then((FirebaseUser user) {
+                          if(user != null) {
+                            String uid = user.uid;
+                            String path = "${uid}/${DateTime.now().toString()}.jpg";
+                            userBloc.uploadFile(path, widget.image)
+                              .then((StorageUploadTask upload) {
+                                upload.onComplete.then((StorageTaskSnapshot snapshot){
+                                  snapshot.ref.getDownloadURL().then((urlImage){
+                                    print("URL IMAGEN: ${urlImage}");
+                                    userBloc.updateMilanesaData(
+                                        Milanesa(
+                                          name: _controllerTitleMilanesa.text,
+                                          description:  _controllerDescriptionMilanesa.text,
+                                          urlImage: urlImage,
+                                          likes: 0))
+                                          .whenComplete(() {
+                                            print("TERMINO");
+                                            Navigator.pop(context);
+                                          });
+                                  });
+                                });
+                            });
+                          }
+                        });
+                      }
                   )
                 )
               ]

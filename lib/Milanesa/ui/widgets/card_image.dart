@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:milanesapp/widgets/floating_action_button_green.dart';
 
@@ -30,7 +32,10 @@ class CardImage extends StatelessWidget {
       margin: EdgeInsets.only(left: left),
       decoration: BoxDecoration(
           image:
-              DecorationImage(fit: BoxFit.cover, image: AssetImage(pathImage)),
+              DecorationImage(
+                  fit: BoxFit.cover,
+                  image: pathImage.contains('assets') ? AssetImage(pathImage) : new FileImage(new File(pathImage)),
+              ),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
           shape: BoxShape.rectangle,
           boxShadow: <BoxShadow>[
