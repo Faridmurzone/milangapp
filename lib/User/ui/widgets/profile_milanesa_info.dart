@@ -22,14 +22,14 @@ class ProfileMilanesaInfo extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
+/*              Text(
                 this.milanga.name,
                 style: TextStyle(
                     color: Color.fromRGBO(0, 0, 0, 0.4),
                     fontFamily: 'Mulish',
                     fontSize: 12.0,
                     fontWeight: FontWeight.bold),
-              ),
+              ),*/
               Text(
                 this.milanga.description,
                 style: TextStyle(

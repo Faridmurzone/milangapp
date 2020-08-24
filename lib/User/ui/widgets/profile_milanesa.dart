@@ -4,10 +4,10 @@ import 'profile_milanesa_info.dart';
 import 'profile_milanesa.dart';
 
 class ProfileMilanesa extends StatelessWidget {
-  String image;
+  // String image;
   Milanesa milanga;
 
-  ProfileMilanesa(this.image, this.milanga);
+  ProfileMilanesa(this.milanga);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ProfileMilanesa extends StatelessWidget {
       margin: EdgeInsets.only(top: 10.0, bottom: 70.0),
       height: 220.0,
       decoration: BoxDecoration(
-          image: DecorationImage(fit: BoxFit.cover, image: AssetImage(image)),
+          image: DecorationImage(fit: BoxFit.cover, image: NetworkImage(milanga.urlImage)),
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
           color: Colors.red,
           boxShadow: <BoxShadow>[
